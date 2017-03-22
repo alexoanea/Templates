@@ -34,7 +34,7 @@
         "East US 2"
       ],
       "metadata": {
-        "description": "Restricts choices to where premium storage is located in the US."
+        "description": "Restrict choices"
       }
     },
     "windowsOSVersion": {
@@ -73,7 +73,7 @@
     "virtualNetworkName": "MyVNET",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
-    "dataDisk1VhdName": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('vmName'),'dataDisk1.vhd']"
+    "dataDisk1VhdName": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('vmName'),'dataDisk1.vhd')]"
   },
   "resources": [
     {
@@ -158,7 +158,7 @@
           "vmSize": "[variables('vmSize')]"
         },
         "osProfile": {
-          "computerName": "[variables('vmName')]",
+          "computername": "[variables('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]"
         },
@@ -183,7 +183,7 @@
               "diskSizeGB": "[parameters('sizeOfDiskInGB')]",
               "lun": 0,
               "vhd": {
-                "uri": "[variables('dataDisk1VhdName')]"
+                "Uri": "[variables('dataDisk1VhdName')]"
               },
               "createOption": "Empty"
             }
